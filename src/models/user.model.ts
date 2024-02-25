@@ -1,7 +1,6 @@
 import mongoose, { Document } from 'mongoose';
 import config from 'config';
 import bcrypt from 'bcrypt';
-import { NextFunction } from 'express';
 
 // Typescript definition for the user schema
 export interface UserDocument extends Document {
@@ -48,6 +47,7 @@ userSchema.pre('save', async function (next) {
   return next();
 });
 
+// Compare password with the hashed at logging
 userSchema.methods.comparePassword = async function (
   candidatePassword: string
 ): Promise<boolean> {
