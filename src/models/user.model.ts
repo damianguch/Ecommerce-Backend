@@ -2,11 +2,14 @@ import mongoose, { Document } from 'mongoose';
 import config from 'config';
 import bcrypt from 'bcrypt';
 
-// Typescript definition for the user schema
-export interface UserDocument extends Document {
+// Typescript definitions for the user schema
+export interface UserInput {
   email: string;
   name: string;
   password: string;
+}
+
+export interface UserDocument extends UserInput, Document {
   createdAt: Date;
   updatedAt: Date;
   comparePassword(candidatePassword: string): Promise<Boolean>;

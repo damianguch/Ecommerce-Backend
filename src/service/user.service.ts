@@ -1,8 +1,8 @@
 import { omit } from 'lodash';
-import userModel, { UserDocument } from '../models/user.model';
+import userModel, { UserDocument, UserInput } from '../models/user.model';
 
 // Service to create a new user
-export async function createUser(values: UserDocument) {
+export async function createUser(values: UserInput) {
   try {
     const user = await userModel.create(values);
     return omit(user.toJSON(), 'password');
@@ -18,7 +18,7 @@ export async function validatePassword({
 }: {
   email: string;
   password: string;
-}) {
+}): Promise<any> {
   const user = await userModel.findOne({ email });
 
   if (!user) {

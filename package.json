@@ -1,15 +1,13 @@
 {
-  "name": "rest-api-tom",
+  "name": "rest-api-tutorial-updated",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
+  "author": "Damian Oguche",
+  "license": "MIT",
   "scripts": {
-    "start": "nodemon src/app.ts",
-    "dev": "ts-node-dev --respawn --transpile-only --exit-child  src/app.ts"
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "build": "tsc"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "config": "^3.3.11",
