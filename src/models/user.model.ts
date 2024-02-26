@@ -47,7 +47,7 @@ userSchema.pre('save', async function (next) {
   return next();
 });
 
-// Compare password with the hashed at logging
+// Compare password with the hashed at loggin
 userSchema.methods.comparePassword = async function (
   candidatePassword: string
 ): Promise<boolean> {
@@ -56,6 +56,6 @@ userSchema.methods.comparePassword = async function (
   return bcrypt.compare(candidatePassword, user.password).catch((e) => false);
 };
 
-const userModel = mongoose.model('User', userSchema);
+const UserModel = mongoose.model<UserDocument>('User', userSchema);
 
-export default userModel;
+export default UserModel;
